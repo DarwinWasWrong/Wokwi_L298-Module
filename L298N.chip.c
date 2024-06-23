@@ -1,7 +1,10 @@
 
-#include "wokwi-api.h"
-#include <stdio.h>
-#include <stdlib.h>
+/ Wokwi Custom Chip - For docs and examples see:
+// https://docs.wokwi.com/chips-api/getting-started
+//
+// SPDX-License-Identifier: MIT
+// Copyright 2023 Darwin WasWrong
+
 
 // thanks to
 // Maverick - for saving my mind with PWM
@@ -13,6 +16,10 @@
 // catch 0 and 255 in PWM
 
 
+
+#include "wokwi-api.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 #define BOARD_HEIGHT 100
 #define BOARD_WIDTH 100
