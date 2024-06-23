@@ -1,35 +1,35 @@
 {
-  "name":   "L298 Module",
+  "name":   "L298 Module WITH DISPLAY",
   "author": "DarwinWasWrong",
   "version": 1,
   "width":   40,
   "height":  40,
 
 
-    "chips": [{ "id": "chip", "type": "github:DarwinWasWrong/Wokwi_L298-Module@0.4.5" }],
+    "chips": [{ "id": "L298 Module", "type": "github:DarwinWasWrong/Wokwi_L298-Module@0.4.5" }],
 	
 	"pins": {
-	"ENA":      { "x": 2.75, "y": 22.15, "target": "chip:ENA" },
-    "IN1":      { "x": 2.75, "y": 24.45, "target": "chip:IN1" },
-    "IN2":      { "x": 2.75, "y": 27.10, "target": "chip:IN2" },
-    "IN3":      { "x": 2.75, "y": 29.48, "target": "chip:IN3" },
-    "IN4":      { "x": 2.75, "y": 31.48, "target": "chip:IN4" },
-    "ENB":      { "x": 2.75, "y": 34.50, "target": "chip:ENB" },
-    "GND":      { "x": 2.75, "y": 18.00, "target": "chip:GND" },
-    "Motor V":  { "x": 2.75, "y": 8.00, "target": "chip:Motor V" },
-    "5V":       { "x":2.75, "y": 12.47, "target": "chip:5V" }
+	"ENA":      { "x": 2.75, "y": 22.15, "target": "L298_Module:ENA" },
+    "IN1":      { "x": 2.75, "y": 24.45, "target": "L298_Module:IN1" },
+    "IN2":      { "x": 2.75, "y": 27.10, "target": "L298_Module:IN2" },
+    "IN3":      { "x": 2.75, "y": 29.48, "target": "L298_Module:IN3" },
+    "IN4":      { "x": 2.75, "y": 31.48, "target": "L298_Module:IN4" },
+    "ENB":      { "x": 2.75, "y": 34.50, "target": "L298_Module:ENB" },
+    "GND":      { "x": 2.75, "y": 18.00, "target": "L298_Module:GND" },
+    "Motor V":  { "x": 2.75, "y":  8.00, "target": "L298_Module:Motor V" },
+    "5V":       { "x": 2.75, "y": 12.47, "target": "L298_Module:5V" },
+	"5V EN1":   { "x": 2.75, "y": 12.47, "target": "L298_Module:5V ENA" }
   },
 "displays": [
         {
-          "id": "Channel_1",
           "x": 12.5,
           "y": -27,
           "rotate": 90,
           "width": 15,
           "height": 40,
           "pixelWidth": 128,
-          "pixelHeight": 256,
-          "chip": "frame_buffer_1"
+          "pixelHeight": 256
+       
         }
 ]
 }
