@@ -2,5 +2,5 @@
 version = 1
 
 [[chip]]
-name = 'L298-module
+name = 'L298-module'
 binary = 'dist/chip.wasm'
