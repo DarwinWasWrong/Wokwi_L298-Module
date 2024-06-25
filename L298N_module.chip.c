@@ -1,5 +1,5 @@
 
-/ Wokwi Custom Chip - For docs and examples see:
+// Wokwi Custom Chip - For docs and examples see:
 // https://docs.wokwi.com/chips-api/getting-started
 //
 // SPDX-License-Identifier: MIT
@@ -749,16 +749,17 @@ typedef struct {
   pin_t pin_IN1;
   pin_t pin_IN2;
   pin_t pin_ENA;
-  pin_t pin_5v_ENA;
+  pin_t pin_ENA_5v;   // 5V for enable
 // Channel B
   pin_t pin_IN3;
   pin_t pin_IN4;
   pin_t pin_ENB;
-  pin_t pin_5v_ENB;
+  pin_t pin_ENB_5v;  // 5V for enable
  
 
+
 // powers and ground
-  pin_t pin_5v;
+  pin_t pin_VCC;
   pin_t pin_GND;
   pin_t pin_Motor_V;
 
@@ -779,6 +780,10 @@ typedef struct {
   uint32_t  previous_low_ENB;
   uint32_t  high_time_ENB;
   uint32_t  low_time_ENB;
+
+// check for start state of jumpered enables
+  uint32_t  start_state_ENA;
+  uint32_t  start_state_ENB;
 
   uint32_t Vs_attr;  // power
 
@@ -807,8 +812,8 @@ typedef struct {
   uint8_t  previous_speed_percent_A;
   uint8_t  previous_speed_percent_B;
 
-  uint8_t   drive_A_state;
-  uint8_t   drive_B_state;
+  uint8_t  drive_A_state;
+  uint8_t  drive_B_state;
   uint8_t  previous_drive_A_state;
   uint8_t  previous_drive_B_state;
   
@@ -862,37 +867,43 @@ static void chip_pin_change_PWM_A(void *user_data, pin_t pin, uint32_t value);
 static void chip_pin_change_PWM_B(void *user_data, pin_t pin, uint32_t value);
 
 void chip_init(void) {
-  chip_state_t *chip = malloc(sizeof(chip_state_t));
   
+  
+  chip_state_t *chip = malloc(sizeof(chip_state_t));
+
+  chip->pin_ENA = pin_init("ENA",INPUT);
   chip->pin_IN1 = pin_init("IN1",INPUT);
   chip->pin_IN2 = pin_init("IN2",INPUT);
-  chip->pin_ENA = pin_init("ENA",INPUT);
-  chip->pin_ENA = pin_init("5v_ENA",OUTPUT);
+ 
 
+  chip->pin_ENB = pin_init("ENB",INPUT);
   chip->pin_IN3 = pin_init("IN3",INPUT);
   chip->pin_IN4 = pin_init("IN4",INPUT);
-  chip->pin_ENB = pin_init("ENB",INPUT);
-  chip->pin_ENB = pin_init("5v_ENB",OUTPUT);
 
-  chip->pin_5v = pin_init("5V",INPUT);
+
+  chip->pin_VCC = pin_init("VCC",INPUT);
   chip->pin_GND = pin_init("GND",INPUT);
   chip->pin_Motor_V = pin_init("Motor_V",INPUT);
 
-printf( "   Start of init %d chip->speed_percent_b  %d\n",5,5);
+  // logic for detecting jumper
+  // set the 5v jumper pins to 5v
+  chip->pin_ENA_5v= pin_init("ENA_5v",OUTPUT_HIGH );
+  chip->pin_ENB_5v= pin_init("ENB_5v",OUTPUT_HIGH );
+
+  // read then ENA pin - if jumper is on - it will be high
+  chip->start_state_ENA =pin_read(chip->pin_ENA);
+  // read then ENB pin - if jumper is on - it will be high
+  chip->start_state_ENB =pin_read(chip->pin_ENB);
+
+ //
+  printf( "ENA linked to 5v %d\n",chip->start_state_ENA);
+  printf( "ENB linked to 5v %d\n",chip->start_state_ENB);
 
 
-//! Returns true if VCC and GND are properly connected.
-bool power_connected(void *data)
-{
-  chip_data_t *chip = (chip_data_t*)data;
-  return pin_read(chip->VCC) && !pin_read(chip->GND);
-}
-
-  chip->Vs_attr = attr_init_float("Vs", 12.0);
   
-  // Control Values
-  chip->use_PWM_ENA= attr_init_float("use_PWM_ENA", 0);
-  chip->use_PWM_ENB= attr_init_float("use_PWM_ENB", 0);
+  // if there is no link have to check for PWM or switching
+  chip->use_PWM_ENA= !chip->start_state_ENA;
+  chip->use_PWM_ENB= !chip->start_state_ENB;
 
 
 
@@ -1015,6 +1026,9 @@ const pin_watch_config_t watch_config_PWM_B = {
   pin_watch(chip->pin_IN2, &watch_config);
   pin_watch(chip->pin_IN3, &watch_config);
   pin_watch(chip->pin_IN4, &watch_config);
+
+
+
 
 
 }
