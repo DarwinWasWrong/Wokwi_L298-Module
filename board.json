@@ -6,7 +6,7 @@
   "height":  40,
 
 
-    "chips": [{ "id": "L298_Module", "type": "github:DarwinWasWrong/Wokwi_L298-Module@0.4.5" }],
+    "chips": [{ "id": "L298_Module", "type": "github:DarwinWasWrong/Wokwi_L298_Module@0.4.5" }],
 	
 	"pins": {
 	"ENA":      { "x": 2.60, "y": 21.75, "target": "L298_Module:ENA" },
@@ -30,10 +30,10 @@
   },
 "displays": [
         {
-          "x": 12.5,
-          "y": -27,
+          "x": 0,
+          "y": -40,
           "rotate": 90,
-          "width": 15,
+          "width": 40,
           "height": 40,
           "pixelWidth": 128,
           "pixelHeight": 256
