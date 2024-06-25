@@ -4,14 +4,18 @@
 
   "pins": [
     "ENA",
+    "ENA_5v",
     "IN1",
     "IN2",
     "IN3",
     "IN4",
     "ENB",
-    "5v ENA",
-    "5v ENB",
-    "5V",
+    "ENB_5v",
+    "",
+    "",
+    "",
+     "",
+    "5v",
     "GND",
     "Motor_V"
   ],
