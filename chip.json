@@ -9,8 +9,8 @@
     "IN3",
     "IN4",
     "ENB",
-    "",
-    "",
+    "5v ENA",
+    "5v ENB",
     "5V",
     "GND",
     "Motor V"

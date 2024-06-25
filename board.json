@@ -6,19 +6,27 @@
   "height":  40,
 
 
-    "chips": [{ "id": "L298 Module", "type": "github:DarwinWasWrong/Wokwi_L298-Module@0.4.5" }],
+    "chips": [{ "id": "L298_Module", "type": "github:DarwinWasWrong/Wokwi_L298-Module@0.4.5" }],
 	
 	"pins": {
-	"ENA":      { "x": 2.75, "y": 22.15, "target": "L298_Module:ENA" },
-    "IN1":      { "x": 2.75, "y": 24.45, "target": "L298_Module:IN1" },
-    "IN2":      { "x": 2.75, "y": 27.10, "target": "L298_Module:IN2" },
-    "IN3":      { "x": 2.75, "y": 29.48, "target": "L298_Module:IN3" },
-    "IN4":      { "x": 2.75, "y": 31.48, "target": "L298_Module:IN4" },
-    "ENB":      { "x": 2.75, "y": 34.50, "target": "L298_Module:ENB" },
-    "GND":      { "x": 2.75, "y": 18.00, "target": "L298_Module:GND" },
-    "Motor V":  { "x": 2.75, "y":  8.00, "target": "L298_Module:Motor V" },
-    "5V":       { "x": 2.75, "y": 12.47, "target": "L298_Module:5V" },
-	"5V EN1":   { "x": 2.75, "y": 12.47, "target": "L298_Module:5V ENA" }
+	"ENA":      { "x": 2.60, "y": 21.75, "target": "L298_Module:ENA" },
+	"5V ENA":   { "x": 6.00, "y": 21.75, "target": "L298_Module:5v ENA" },
+	
+    "IN1":      { "x": 2.60, "y": 23.75, "target": "L298_Module:IN1" },
+    "IN2":      { "x": 2.60, "y": 26.00, "target": "L298_Module:IN2" },
+    "IN3":      { "x": 2.60, "y": 28.00, "target": "L298_Module:IN3" },
+    "IN4":      { "x": 2.60, "y": 30.00, "target": "L298_Module:IN4" },
+	
+    "ENB":      { "x": 2.60, "y": 32.40, "target": "L298_Module:ENB" },
+	"5V ENB":   { "x": 6.00, "y": 32.40, "target": "L298_Module:5v ENB" },
+	
+	"Motor V":  { "x": 3.25, "y": 9.5, "target": "L298_Module:Motor V" },
+    "GND":      { "x": 3.25, "y": 13.5, "target": "L298_Module:GND" },
+    "5V":       { "x": 3.25, "y": 17.35, "target": "L298_Module:5V" }
+	
+	
+	
+	
   },
 "displays": [
         {
