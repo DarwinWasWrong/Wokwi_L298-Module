@@ -1,6 +1,6 @@
 {
   "name": "L298 Module",
-  "author": "Darwin",
+  "author": "DarwinWasWrong",
 
   "pins": [
     "ENA",
@@ -21,21 +21,7 @@
   ],
   "controls": [
 
-     { "id": "use_PWM_ENAA",
-      "label": "PWM USED ENA",
-      "type": "range",
-      "min": 0,
-      "max": 1,
-      "step": 1
-     }
-     ,
-     { "id": "use_PWM_ENB",
-      "label": "PWM USED ENB",
-      "type": "range",
-      "min": 0,
-      "max": 1,
-      "step": 1
-     }
+
   ],
     "display": {
     "width":256,
