@@ -4,17 +4,17 @@
   "editor": "wokwi",
   "parts": [
     { "type": "wokwi-arduino-uno", "id": "uno", "top": 48.6, "left": -10.2, "attrs": {} },
-    { "type": "wokwi-custom-board", "id": "chip1", "top": 42.6, "left": 345.37, "attrs": {} }
+    { "type": "wokwi-L298-module", "id": "L298-module", "top": 42.6, "left": 345.37, "attrs": {} }
   ],
   "connections": [
-    [ "chip1:IN4", "uno:6", "orange", [ "h0" ] ],
-    [ "chip1:IN3", "uno:7", "blue", [ "h0" ] ],
-    [ "chip1:IN2", "uno:8", "violet", [ "h0" ] ],
-    [ "chip1:IN1", "uno:9", "white", [ "h0" ] ],
-    [ "chip1:GND", "uno:GND.1", "black", [ "h-254.14", "v9.6" ] ],
-    [ "chip1:5V", "uno:5V", "red", [ "h-42.52", "v160.63", "h-165.33" ] ],
-    [ "chip1:5V ENA", "chip1:ENA", "yellow", [ "v0" ] ],
-    [ "chip1:5V ENB", "chip1:ENB", "yellow", [ "v0" ] ]
+    [ "L298-module:IN4", "uno:6", "orange", [ "h0" ] ],
+    [ "L298-module:IN3", "uno:7", "blue", [ "h0" ] ],
+    [ "L298-module:IN2", "uno:8", "violet", [ "h0" ] ],
+    [ "L298-module:IN1", "uno:9", "white", [ "h0" ] ],
+    [ "L298-module:GND", "uno:GND.1", "black", [ "h-254.14", "v9.6" ] ],
+    [ "L298-module:5V", "uno:5V", "red", [ "h-42.52", "v160.63", "h-165.33" ] ],
+    [ "L298-module:5V ENA", "L298-module:ENA", "yellow", [ "v0" ] ],
+    [ "L298-module:5V ENB", "L298-module:ENB", "yellow", [ "v0" ] ]
   ],
   "dependencies": {}
 }
