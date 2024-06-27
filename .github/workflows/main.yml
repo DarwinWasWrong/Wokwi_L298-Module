@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   format-check:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: "espressif/idf:release-v5.2"
     steps:
@@ -16,7 +16,7 @@ jobs:
           which clang-format
           make format-check
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
@@ -46,7 +46,7 @@ jobs:
           path: 'examples/${{ matrix.example }}'
 
   build-arduino:
-    runs-on: ubuntu-latest
+    runs-on: self-hostedt
     container:
       image: "espressif/idf:${{ matrix.version }}"
     strategy:
