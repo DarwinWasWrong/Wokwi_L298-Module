@@ -6,9 +6,9 @@ jobs:
   format-check:
     runs-on: self-hosted
     container:
-      image: "espressif/idf:release-v5.2"
+      image: "espressif/idf:release-v1.0.0"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v1
       - run: |
           . $IDF_PATH/export.sh
           idf_tools.py install esp-clang
@@ -21,18 +21,12 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - release-v4.4
-          - release-v5.1
-          - release-v5.2
+          - release-v1.0
         example:
-          - calibration_helper
-          - demo
-          - dragon
-          - grayscale_test
-          - www-image
+          - 1tarter
         include:
-          - version: release-v5.1
-            example: screen_diag
+          - version: release-v1.0
+            example: chip-test
 
     continue-on-error: ${{ matrix.version == 'latest' }}
 
@@ -53,11 +47,11 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - release-v4.4
+          - release-v1.0
         example:
-          - weather
+          - chip-video
         include:
-          - version: release-v4.4
+          - version: release-v1.0
             arduino-esp32: 2.0.11
 
     steps:
@@ -65,7 +59,7 @@ jobs:
         run: |
           apt update -qq && apt install -y -qq git
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v1
       - name: Install Arduino ESP
         run: |
           cd examples/${{ matrix.example }}
