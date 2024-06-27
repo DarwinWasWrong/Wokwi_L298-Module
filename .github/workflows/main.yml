@@ -40,7 +40,7 @@ jobs:
           path: 'examples/${{ matrix.example }}'
 
   build-arduino:
-    runs-on: self-hostedt
+    runs-on: self-hosted
     container:
       image: "espressif/idf:${{ matrix.version }}"
     strategy:
