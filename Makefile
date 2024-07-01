@@ -1,26 +1,28 @@
-SOURCES = src/L298-module.chip.c src/wokwi-api.h
-INCLUDES = -I . -I include
-CHIP_JSON = src/L298-module.chip.json
+name: Build Chip
 
-TARBALL  = dist/chip.tar.gz
-TARGET  = dist/chip.wasm
+on:
+  push:
+  workflow_dispatch:
 
-.PHONY: all
-all: clean $(TARBALL)
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Build chip
+        uses: wokwi/wokwi-chip-clang-action@main
+        with:
+          sources: "src/L298-module.chip.c"
+      - name: Copy chip.json
+        run: sudo cp src/L298-module.chip.json dist
+      - name: 'Upload Artifacts'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chip
+          path: |
+            dist/L298-module.chip.json
+            dist/chip.wasm
 
-.PHONY: clean
-clean:
-		rm -rf dist
-
-dist:
-		mkdir -p dist
-
-$(TARBALL): $(TARGET) dist/chip.json
-	ls -l dist
-	tar czf $(TARBALL) $(TARGET) dist/chip.json
-
-dist/chip.json:
-	cp $(CHIP_JSON) dist/chip.json
-
-$(TARGET): dist $(SOURCES)
-	  clang --target=wasm32-unknown-wasi --sysroot /opt/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--export-table -Wl,--no-entry -Werror  $(INCLUDES) -o $(TARGET) $(SOURCES)
+  # The release job only runs when you push a tag starting with "v", e.g. v1.0.0 
