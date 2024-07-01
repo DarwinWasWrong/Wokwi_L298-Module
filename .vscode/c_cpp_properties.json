@@ -8,7 +8,7 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "v:/wokwi-projects/Wokwi_L298-Module/src",
+                "v:/Wokwi_L298-Module/src",
                 "C:/Users/ed.leibrick/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/ed.leibrick/.platformio/packages/framework-arduino-avr/variants/standard",
                 "C:/Users/ed.leibrick/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -21,7 +21,7 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "v:/wokwi-projects/Wokwi_L298-Module/src",
+                    "v:/Wokwi_L298-Module/src",
                     "C:/Users/ed.leibrick/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/ed.leibrick/.platformio/packages/framework-arduino-avr/variants/standard",
                     "C:/Users/ed.leibrick/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
