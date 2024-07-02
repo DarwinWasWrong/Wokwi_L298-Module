@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  wokwil298module:
+    image: wokwil298module
+    build:
+      context: .
+      dockerfile: ./Dockerfile
