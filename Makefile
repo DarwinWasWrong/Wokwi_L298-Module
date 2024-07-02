@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
