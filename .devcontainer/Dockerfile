@@ -9,3 +9,4 @@ RUN  wget -O /tmp/cli.tar.gz \
     tar -C /usr/local/bin -zxvf /tmp/cli.tar.gz && \
     rm /tmp/cli.tar.gz
 RUN arduino-cli core update-index && arduino-cli core install arduino:avr
+
