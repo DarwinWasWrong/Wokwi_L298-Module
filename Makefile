@@ -1,28 +1,22 @@
-name: Build Chip
+SOURCES = src/main.c
+TARGET  = dist/chip.wasm
 
-on:
-  push:
-  workflow_dispatch:
+.PHONY: all
+all: $(TARGET) dist/chip.json
 
-jobs:
-  build:
-    name: Build
-    runs-on: self-hosted
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Build chip
-        uses: wokwi/wokwi-chip-clang-action@main
-        with:
-          sources: "src/L298-module.chip.c"
-      - name: Copy chip.json
-        run: sudo cp src/L298-module.chip.json dist
-      - name: 'Upload Artifacts'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chip
-          path: |
-            dist/L298-module.chip.json
-            dist/chip.wasm
+.PHONY: clean
+clean:
+		rm -rf dist
 
-  # The release job only runs when you push a tag starting with "v", e.g. v1.0.0 
+dist:
+		mkdir -p dist
+
+$(TARGET): dist $(SOURCES) src/wokwi-api.h
+	  clang --target=wasm32-unknown-wasi --sysroot /opt/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--export-table -Wl,--no-entry -Werror -o $(TARGET) $(SOURCES)
+
+dist/chip.json: dist chip.json
+	  cp chip.json dist
+
+.PHONY: test
+test:
+	  cd test && arduino-cli compile -e -b arduino:avr:uno blink
