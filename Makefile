@@ -1,4 +1,4 @@
-SOURCES = src/main.c
+SOURCES = src/L298-module.chip.c
 TARGET  = dist/chip.wasm
 
 .PHONY: all
