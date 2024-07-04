@@ -6,7 +6,7 @@
   "height":  60,
 
 
-    "chips": [{ "id": "L298-module", "type": "github:DarwinWasWrong/Wokwi_L298-Module@1.1.0.3" }],
+    "chips": [{ "id": "L298-module", "type": "github:DarwinWasWrong/Wokwi_L298-Module@1.0.4" }],
 	
 	"pins": {
 	"ENA":      { "x": 2.60, "y": 21.75, "target": "L298-module:ENA" },
