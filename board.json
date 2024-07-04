@@ -30,7 +30,7 @@
   },
 "displays": [
         {
-		  "id": "L298-module",
+		  "id": "L298-module_display",
           "x": 1.5,
           "y": 41.25,
           "rotate": 0,
