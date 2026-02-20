@@ -1,22 +1,30 @@
 {
-    "name": "WS29V2 e-paper module",
+    "name": "ln298-module",
     "version": 1,
-    "description": "Waveshare 2.9\" e-Paper Module",
-    "author": "Bonny Rais",
+    "description": "ln298-module",
+    "author": "DarwinWasWrong",
     "width": 88.5,
     "height": 38,
   
-    "chips": [{ "id": "chip", "type": "github:bonnyr/wokwi-ws29v2-custom-chip@0.0.1" }],
+    "chips": [{ "id": "chip", "type": "github:DarwinWasWrong/wokwi-l298module-chip@4.0.8" }],
   
     "pins": {
-        "BUSY" : { "x": 4, "y": 10, "target": "chip:BUSY" },
-        "RST": { "x": 4, "y": 12.54, "target": "chip:RST" },
-        "DC": { "x": 4, "y": 15.08, "target": "chip:DC" },
-        "CS": { "x": 4, "y": 17.62, "target": "chip:CS" },
-        "CLK": { "x": 4, "y": 20.18, "target": "chip:CLK" },
-        "DIN": { "x": 4, "y": 22.72, "target": "chip:DIN" },
-        "VCC": { "x": 4, "y": 25.26, "target": "chip:VCC" },
-        "GND": { "x": 4, "y": 27.8, "target": "chip:GND" }
+        "GND" : { "x": 12, "y": 10, "target": "chip:GND" },
+        "V5+": { "x": 12, "y": 12.54, "target": "chip:V5+" },
+        "V12+": { "x": 12, "y": 15.08, "target": "chip:V12+" },
+        "ENA": { "x": 12, "y": 17.62, "target": "chip:ENA" },
+        "IN1": { "x": 12, "y": 107, "target": "chip:IN1" },
+        "IN2": { "x": 12, "y": 117, "target": "chip:IN2" },
+        "ENB": { "x": 12, "y": 148, "target": "chip:ENB" },
+        "IN3": { "x": 12, "y": 127, "target": "chip:IN3" },
+        "IN4": { "x": 12, "y": 138, "target": "chip:IN4" },
+        "OUT1": { "x": 65, "y": 12, "target": "chip:OUT1" },
+        "OUT2": { "x": 65, "y": 12, "target": "chip:OUT2" },
+        "OUT3": { "x": 65, "y": 165, "target": "chip:OUT3" },
+        "OUT4": { "x": 65, "y": 165, "target": "chip:OUT4" },
+
+
+        
     },
 
     "displays": [
@@ -29,10 +37,11 @@
           "height": 67.5,
           "pixelWidth": 128,
           "pixelHeight": 296,
-          "chip": "ws29v2"
+          "chip": "l298module"
         }
       ]
   }
+
 
 
   
